@@ -35,37 +35,29 @@ This directory contains Jupyter/Databricks notebooks that define the logic for c
 
 | Notebook | Description |
 |----------|------------|
-| `processed_data date table creation | Generates `dim_date` table with a date range from 2016-01-01 to 2024-12-31. |
-| `processed_data create_dim_hldy.ipynb` | Tags holidays to dates in `dim_hldy`. |
-| `processed_data create_dim_time_hldy.ipynb` | Combines `dim_date` with `dim_hldy` for holiday-tagged dates. |
-| `processed_data create_dim_str_location.ipynb` | Processes and cleans store location data for `dim_str_location`. |
+| `processed_data date table creation.ipynb` | Generates `dim_date` table with a date range from 2016-01-01 to 2024-12-31. , Combines `dim_date` with `dim_hldy` for holiday-tagged dates. , Tags holidays to dates in `dim_hldy`. |
+| `processed_data str_location table.ipynb` | Processes and cleans store location data for `dim_str_location`. |
 | `processed_data holiday_sales.ipynb` | Aggregates sales data for `fact_holiday_sales`. |
-| `processed_data sales performance.ipynb` | Loads and processes transactional sales data for `fact_sales_performance`. |
+| `processed_data sales performance table.ipynb` | Loads and processes transactional sales data for `fact_sales_performance`. |
 
 ## Execution  
-To execute the notebooks, follow these steps in **Azure Databricks** or a Jupyter environment:  
+To execute the notebooks, follow these steps in **Azure Databricks** :  
 
 ```bash
-# Run dim_date generation
-python notebooks/create_dim_date.py  
-
-# Generate holiday mapping
-python notebooks/create_dim_hldy.py  
-
-# Generate holiday-tagged time dimension
-python notebooks/create_dim_time_hldy.py  
+# Run dim_date, holiday mapping, holiday-tagged time dimension generation
+python notebooks/`processed_data date table creation.ipynb  
 
 # Process store locations
-python notebooks/create_dim_str_location.py  
+python notebooks/processed_data str_location table.ipynb
 
 # Aggregate holiday sales data
-python notebooks/create_fact_holiday_sales.py  
+python notebooks/processed_data holiday_sales.ipynb 
 
 # Process sales transactions
-python notebooks/create_fact_sales_performance.py  
+python notebooks/processed_data sales performance table.ipynb 
 ```
 
 ## Usage  
 - These tables support **business intelligence (BI) reporting**, **sales forecasting**, and **trend analysis**.  
-- Processed tables are stored in **Azure Blob Storage** for downstream analytics.  
+- Processed tables are stored in Hivemetastore of Databricks.  
 
