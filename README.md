@@ -1,4 +1,4 @@
-### Gsynergy Data Warehousing project
+# Gsynergy Data Warehousing project
 
 ## Overview
 This project is a data processing pipeline designed to ingest, transform, and load retail sales data into a structured format using Azure Databricks and Azure Blob Storage. The pipeline includes incremental data processing, data quality checks, and optimized transformations.
